@@ -1,0 +1,175 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="chart_1.css">
+<title>カルテ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+window.onload = function() {
+//$("p#first").html("<strong>abc</strong>");
+};
+</script>
+</head>
+<body>
+<div id="title">カルテ</div>
+<div id="no">No. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div id="date-first">西暦<span class="text-date" id="year0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>年<span class="text-date"  id="month0">&nbsp;&nbsp;</span>月<span class="text-date"  id="date0">&nbsp;&nbsp;</span>日</div>
+
+<table id="table-frame"><tr><td><!-- begin frame -->
+  <table class="table-base"><tr><!-- 氏名  -->
+    <td width="50%">
+      <table width="100%" height="100%" rules="all">
+        <tr width="50%"><td class="category td-hurigana">フリガナ</td><td></td></tr>
+        <tr width="50%"><td class="category td-name">氏名</td><td></td></tr>
+      </table>
+    </td>
+    <td><center>  男 ・ 女 </center></td>
+    <td width="5%"><center>誕<br>生</center></td>
+    <td width="33%"><center><span class="text-date">西暦</span><span class="text-date" id="byear">&nbsp; &nbsp; &nbsp; &nbsp;</span>年<span class="text-date"  id="bmonth">&nbsp; &nbsp;</span>月<span class="text-date"  id="date0">&nbsp; &nbsp;</span>日<span class="text-date">生</span></center></td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base address"><tr>
+    <td class="category">住所</td><td class="td-text" style="vertical-align:top;">〒</td><td width="10%"><center>電話</center></td><td width="28%"></td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base"><tr>
+      <td class="category td-height">職業</td><td></td><td width="10%"><center>紹介者</center></td><td></td><td width="10%"><center>メール</center></td><td width="28%"></td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base kiou"><tr>
+      <td class="category">既往歴</td><td>
+        <table  width="100%" height="100%" rules="all">
+          <tr><td class="td-text" colspan="2">(何歳のときに何病にかかりましたか？)</td></tr>
+          <tr><td class="td-height" width="10%"><center>感染症</center></td><td class="td-text">肝炎(&nbsp;&nbsp;&nbsp;&nbsp;型)、HIV、梅毒、CMV、その他</td></tr>
+        </table>
+      </td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base"><tr>
+      <td class="category td-height">出血傾向</td><td class="td-text"> なし ・ ある (血友病、白血病、紫斑病、血液をサラサラにする薬の服用等)</td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base kazoku"><tr>
+      <td class="category">家族歴</td><td class=" td-text">(肉親の死亡原因)</td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base genbyou"><tr>
+      <td class="category">現病歴</td>
+      <td>
+        <table width="100%" height="100%" rules="all">
+          <tr><td class="td-text">(どのような症状がありますか？)</td></tr>
+          <tr><td class="td-text">(いつ、どのようにして症状が起きましたか？)</td></tr>
+          <tr><td class="td-text">(どのように痛みますか？)</td></tr>
+          <tr><td class="td-text">(どのような時に痛みが強くなりますか？) 寝起き ・ 午前 ・ 午後 ・ 就寝前 ・ その他</td></tr>
+          <tr><td class="td-text">(症状が発生する頻度は？) 【日 ・ 週 ・ 月】に <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> 回</td></tr>
+          <tr><td class="td-text">(今までの治療法は？) 特になし ・ 薬 ・ 鍼灸 ・ その他</td></tr>
+        </table>
+      </td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base"><tr>
+      <td class="category">症状</td>
+      <td>
+        <table class="syoujou" width="100%" rules="all">
+          <tr><td><center>睡眠</center></td><td colspan="3">寝付きが悪い、めざめやすい、寝た気がしない、眠りすぎる、夢が多い</td></tr>
+          <tr><td width="9%"><center>頭痛</center></td><td width="41%">頭が重い、めまい、立ちくらみ</td><td width="9%"><center>胸</center></td><td>胸が重苦しい、動悸、息切れ</td></tr>
+          <tr><td><center>食欲</center></td><td>【 旺盛 ・ ふつう ・ ない 】</td><td><center>胃</center></td><td colspan="3">つかえ、胸やけ、吐き気、嘔吐、腹痛</td></tr>
+          <tr><td><center>せき</center></td><td>多い、少ない、発作がある</td><td><center>たん</center></td><td>多い、少ない、粘る、水様で泡がある</td></tr>
+          <tr><td><center>鼻</center></td><td>鼻づまり、鼻水【 水性 ・ 粘性 】、鼻出血</td><td><center>のど</center></td><td>渇く、唇の乾燥、唾液が多い、口が苦い</td></tr>
+          <tr><td><center>こり</center></td><td>首、肩、背中、腰痛</td><td><center>しびれ</center></td><td>左手、左足、右手、右足</td></tr>
+          <tr><td><center>尿</center></td><td>多い、少ない、近い、夜間 <u>&nbsp;&nbsp;&nbsp;&nbsp;</u>  回</td><td><center>便通</center></td><td>1日 <u>&nbsp;&nbsp;&nbsp;&nbsp;</u> 回</td></tr>
+          <tr><td><center>月経</center></td><td>【 順調 ・ 不調 ・ ない ( <u>&nbsp;&nbsp;&nbsp;&nbsp</u> ヶ月前から) 】</td><td><center>妊娠</center></td><td>【 なし ・ 正常 ・ 異常 ・ 流産 】</td></tr>
+          <tr><td><center>その他</center></td><td colspan="3">疲れやすい、冷え、むくみ、耳鳴り、難聴、出血</td></tr>
+        </table>
+      </td></tr>
+  </table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base"><tr>
+      <td class="category td-height">体質</td>
+      <td>寒がり、暑がり、冷え症、のぼせ症、かぜひきやすい、下痢しやすい、便秘しやすい</td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base"><tr>
+      <td class="category td-height">嗜好</td>
+      <td>酒( 週 <u>&nbsp;&nbsp;&nbsp;&nbsp</u> 回 )、たばこ( 1日 <u>&nbsp;&nbsp;&nbsp;&nbsp;</u> 本、喫煙歴 <u>&nbsp;&nbsp;&nbsp;&nbsp;</u> 年間 )、甘味、塩味、油もの、肉、魚、野菜、果物</td>
+  </tr></table>
+</td></tr>
+
+<tr><td>
+  <table class="table-base"><tr>
+    <td class="category" rowspan="5">所見</td>
+    <td>
+      <table class="syoken" rules="all" width="100%">
+        <tr><td><center>身体</center></td><td>伸長 <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> cm &nbsp; 体重 <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> kg</td></tr>
+        <tr><td><center>VS</center></td><td>体温 <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> 度 &nbsp; 血圧 <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> mmHg / <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> mmHg &nbsp; 脈拍 <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</u> 回/分</td></tr>
+      </table>
+    </td></tr><tr><td>
+      <table class="sikitai" rules="all" width="100%">
+        <tr><th>色体</th><th>表裏</th><th>寒熱</th><th>虚実</th><th>木</th><th>火</th><th>土</th><th>金</th><th>水</th><th width="40%">詳細</th></tr>
+        <tr><td><nobr>顔色</nobr></td><td><nobr>表裏</nobr></td><td><nobr>寒熱</nobr></td><td><nobr>虚実</nobr></td><td>青</td><td>赤</td><td>黄</td><td>白</td><td>黒</td><td></td></tr>
+        <tr><td>舌診</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>青</td><td>赤</td><td>黄</td><td>白</td><td>黒</td><td></td></tr>
+        <tr><td>五神</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>魂</td><td>神</td><td>意</td><td>魄</td><td>志</td><td></td></tr>
+        <tr><td>五官</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>目</td><td>舌</td><td>口</td><td>鼻</td><td>耳</td><td></td></tr>
+        <tr><td>五主</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>筋</td><td>血脈</td><td>肌肉</td><td>皮膚</td><td>骨髄</td><td></td></tr>
+        <tr><td>五華</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>爪</td><td>面</td><td>唇</td><td>毛</td><td>髪</td><td></td></tr>
+        <tr><td>五常</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>仁</td><td>礼</td><td>智</td><td>義</td><td>信</td><td></td></tr>
+        <tr><td>五味</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>酸</td><td>苦</td><td>甘</td><td>辛</td><td>鹹</td><td></td></tr>
+        <tr><td>五香</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>臊</td><td>焦</td><td>香</td><td>腥</td><td>腐</td><td></td></tr>
+        <tr><td>五声</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>呼</td><td>言</td><td>歌</td><td>哭</td><td>呻</td><td></td></tr>
+        <tr><td>五液</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>涙</td><td>汗</td><td>涎</td><td>涕</td><td>唾</td><td></td></tr>
+        <tr><td>五志</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>怒</td><td>喜</td><td>思</td><td>憂</td><td>恐</td><td></td></tr>
+        <tr><td>五変</td><td>表裏</td><td>寒熱</td><td>虚実</td><td>握</td><td>云</td><td>噦</td><td>欬</td><td>慄</td><td></td></tr>
+      </table>
+    </td></tr><tr><td>
+      <table class=">
+        <tr><td>募穴診</td><td>中府、膻中、鳩尾、期門、日月、章門、京門、中脘、天枢、石門、関元、中極</td></tr>
+        <tr><td>腹診</td><td></td></tr>
+        <tr><td>尺膚診</td><td></td></tr>
+        <tr><td>脈診</td><td>
+          <table style="float:left">
+            <caption>右手</caption>
+            <tr><td>寸</td><td>関</td><td>尺</td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+          </table>
+          <table>
+            <caption>左手</caption>
+            <tr><td>寸</td><td>関</td><td>尺</td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+          </table>
+        </td></tr>
+        <tr><td>背候診</td><td></td></tr>
+      </table>
+    </td></tr></table> <!-- -所見  -->
+</td></tr></table><!-- frame -->
+
+</body>
+</body>

@@ -1,0 +1,103 @@
+#title {
+    position: relative;
+    font-size: 32px;
+    color: red;
+    width: 21cm; /* 21(100%) */
+    text-align: center;
+}
+
+#no {
+    position: absolute;
+    top: 0.2cm;
+    width:21cm;
+    text-decoration: underline;
+    text-align: right;
+}
+
+#date-first {
+    position: relative;
+    width: 21cm;
+    text-align: right;
+}
+
+#table-frame {
+border: 1px #ff0000 solid;
+border-collapse: collapse;
+position: relative;
+width: 21cm;
+}
+
+.text-date {
+ margin-left:0.2cm;
+ margin-right:0.2cm;
+}
+
+.category { /* left side td */
+width: 2cm;
+text-align: center;
+}
+
+.td-text {
+ padding: 0.1cm 0.2cm;
+}
+.td-height {
+ height: 0.8cm; /* base height */
+}
+.td-hurigana {
+    font-size: 0.3cm;
+    height: 0.5cm;
+}
+.td-name {
+ height: 1.0cm;
+}
+.address {
+    height: 1.6cm; /* x2 */
+}
+.kiou {
+    height: 2.4cm; /* x3 */
+}
+.kazoku{ 
+    height: 1.6cm;/* x2 */
+}
+.genbyou {
+    height: 4.8cm;/* x6 */
+}
+.syoujou {
+}
+.syoujou td{
+    height: 0.58cm;
+    padding: 0cm 0.2cm;
+}
+.syoken {
+}
+.syoken td{
+    height: 0.58cm;
+    padding: 0cm 0.2cm;
+}
+.sikitai {
+}
+.sikitai td{
+    height: 0.58cm;
+    padding: 0cm 0.2cm;
+    text-align: center;
+}
+
+.table-base {
+border: 1px #38ffff solid;
+border-collapse: collapse;
+width: 100%
+}
+td {
+padding: 0px;
+}
+.table-base  td{
+border: 1px #38ffff solid;
+}
+.tabe-text td{
+padding: 10px;
+}
+
+#form-text .year0{
+border: 0;
+height: 0.5cm;
+}
