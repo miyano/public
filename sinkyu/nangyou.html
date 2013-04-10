@@ -11,7 +11,7 @@
 }
 </style>
 
-<script type="text/javascript" src="../basic.js" />
+<script type="text/javascript" src="../basic.js"></script>
 <script type="text/javascript">
 var xmlpath = "nangyou.xml";
 var nan_list = new Array();
@@ -39,177 +39,32 @@ function make_content(no) {
     assert('invalid no: ' + no);
     return;
   }
-  var text = n
-  var text = document.fm.s_text.value;
-  var gen = get_selected_option_value(document.fm.s_gen);
-  var type = get_selected_option_value(document.fm.s_type);
-  var text_op = get_selected_option_value(document.fm.s_text_op);
-  //alert(kai + ' : ' + text + ' : ' + gen + ' : ' + text_op + ' : ' );
-  var start = new Date().getTime();
-  var list = dofilter(kai, gen, text, text_op, type);
-  var tm = new Date().getTime() - start;
-  //alert(tm);
-//text,gen,text_op
-  var info_text = '検索結果：' + list.length + '件 (';
-  var key = '';
-  if (type.length > 0) {
-    if (type == '0') {
-      key += '<按マ指>の';
-    } else {
-      key += '<鍼灸>の';
-    }
-  }
-  if (kai > 0) {key += '第' + kai + '回の';}
-  if (gen.length > 0) {key += '[' + gen + ']の';}
-  if (text.length > 0) {
-    if (text_op.length > 0) {
-      key += text + 'と' + text_op + 'を含む';
-    } else {
-      key += text + 'を含む';
-    } 
-  } else {
-    if (text_op.length > 0) {
-      key += text_op + 'を含む';
-    }
-  }
-  if (key.length == 0) {
-    key = 'すべての';
-  }
-  info_text += key + ' 問題)';
-
-  var info = document.getElementById('info');
-  info.innerHTML = info_text;
-
-  var result = document.getElementById('result');
-  while (result.firstChild) {
-    result.removeChild(result.firstChild);
-  }
-  for (var i = 0; i < list.length; i++) {
-    var div = list[i];
-    var kai = div.getAttribute('kai');
-    var type = div.getAttribute('type');
-    var gen = div.getAttribute('gen');
-    var no = div.getAttribute('no');
-    var ans = div.getAttribute('ans');
-    var items = div.getElementsByTagName('span');
-    var bun = get_node_textContent(items[0].textContent);
-    var a1 = get_node_textContent(items[1].textContent);
-    var a2 = get_node_textContent(items[2].textContent);
-    var a3 = get_node_textContent(items[3].textContent);
-    var a4 = get_node_textContent(items[4].textContent);
-    var child = document.createElement('div');
-    var type_str = (type == 1) ? '鍼灸' : '按マ指';
-    child.innerHTML = '第 ' + kai + ' 回　' + type_str + '<br>' +
-                      gen + ' <br>' +
-                      no + '　' + bun + '<br>'+
-                      '<ol>' +
-                      '<li>' + a1 + '</li>' +
-                      '<li>' + a2 + '</li>' +
-                      '<li>' + a3 + '</li>' +
-                      '<li>' + a4 + '</li>' +
-                      '</ol>'  +
-                      '<span id="answer">' + ans + '</span><br></div>';
-     result.appendChild(child);
-  }
+  var textNode = nan.getElementsByTagName('text')[0];
+  var html = textNodeToHTML(textNode);
+  var content = document.getElementById('content');
+  var div = document.createElement('div');
+  //div.innerHTML = getTextContent(content);
+  div.innerHTML = html;//debug_print_object(nan);
+  remove_all_child(content);
+  content.appendChild(div);
   return false;
 }
-
-function dofilter(kai, gen, text, text_op, type) {
-  var list = new Array();
-  var divs = g_divs;
-  if (text.length > 0) {
-    var tdivs = new Array();
-    for (var i = 0; i < divs.length; i++) {
-      if (g_texts[i].indexOf(text)  != -1) { tdivs.push(divs[i]); }
-    }
-    divs = tdivs;
-  }
-
-  if (text_op.length > 0) {
-    var tdivs = new Array();
-    for (var i = 0; i < divs.length; i++) {
-      if (g_texts[i].indexOf(text_op)  != -1) { tdivs.push(divs[i]); }
-    }
-    divs = tdivs;
-  }
-
-  for (var i = 0; i < divs.length; i++) {
-    var div = divs[i];
-    if (type.length > 0 && type != div.getAttribute('type')) { continue; }
-    if (kai > 0 && kai != div.getAttribute('kai')) { continue; }
-    if (gen.length > 0 && div.getAttribute('gen').indexOf(gen) == -1) { continue; }
-    list.push(div);
-  }
-  return list;
-}
-
-
-
 </script>
 </head>
 <body>
-<form  name="fm" onsubmit="setTimeout('filter()', 10); return false">
-<input type="text" name="s_text" size="10" value="" autofocus>
-と<select name="s_text_op">
-   <option value="" selected>(なし)</option>
-   <option value="上皮">上皮</option>
-   <option value="結合組織">結合組織</option>
-   <option value="神経">神経</option>
-   <option value="筋">筋</option>
-   <option value="血管">血管</option>
-   <option value="血圧">血圧</option>
-   <option value="交感神経">交感神経</option>
-   <option value="関節">関節</option>
-   <option value="感覚">感覚</option>
-   <option value="運動">運動</option>
-   <option value="内臓">内臓</option>
-   <option value="内分泌">内分泌</option>
-   <option value="ホルモン">ホルモン</option>
-   <option value="細菌">細菌</option>
-   <option value="ウイルス">ウイルス</option>
-   <option value="感染">感染</option>
-   <option value="腫瘍">腫瘍</option>
-   <option value="がん">がん</option>
-   <option value="癌">癌</option>
-   <option value="脳">脳</option>
-   <option value="肝">肝</option>
-   <option value="心">心</option>
-   <option value="肺">肺</option>
-   <option value="脾">脾</option>
-   <option value="腎">腎</option>
-   <option value="胃">胃</option>
-   <option value="胆">胆</option>
-   <option value="腸">腸</option>
-   <option value="腸">腸</option>
-   <option value="膵">膵</option>
-   <option value="診">診</option>
-   <option value="穴">穴</option>
-  </select>
-を含む問題を
-<input type="submit" value="検索">
-<br>
-ジャンル：<select name="s_gen">
-   <option value="" selected>すべて</option>
-   <option value="衛生学">衛生学</option>
-   <option value="関係法規">関係法規</option>
-   <option value="解剖学">解剖学</option>
-   <option value="生理学">生理学</option>
-   <option value="病理学">病理学</option>
-   <option value="臨床医学総論">臨床医学総論</option>
-   <option value="臨床医学各論">臨床医学各論</option>
-   <option value="リハビリテーション医学">リハビリテーション医学</option>
-   <option value="東洋医学概論">東洋医学概論</option>
-   <option value="経絡経穴概論">経絡経穴概論</option>
-   <option value="東洋医学臨床論">東洋医学臨床論</option>
-   <option value="鍼理論">鍼理論</option>
-   <option value="灸理論">灸理論</option>
-   <option value="按摩・マッサージ・指圧理論">按マ指理論</option>
-  </select>第：<select name="s_kai">
-   <option value="" selected>すべて</option>
-   <option value="20">20</option><option value="19">19</option><option value="18">18</option>   <option value="17">17</option><option value="16">16</option><option value="15">15</option>   <option value="14">14</option><option value="13">13</option><option value="12">12</option>   <option value="11">11</option><option value="10">10</option><option value="9">9</option>   <option value="8">8</option><option value="7">7</option><option value="6">6</option>   <option value="5">5</option><option value="4">4</option><option value="3">3</option>   <option value="2">2</option><option value="1">1</option></select>回
-種別：<select name="s_type">   <option value="" selected>すべて</option>   <option value="0">按マ指</option>   <option value="1">鍼灸</option></select></form>
-<div id = "info"></div>
-<br>
-<div id = "result"></div>
+<div>難経</div>
+<div>
+難経は鍼灸の古典である。
+鍼灸医学は数千年前に中国大陸で発明されたとされる。
+我々は数千年前にどのような治療が行なわれていたかを
+甲骨文字や書物から推測することができる。
+鍼や灸の記述が最初にでてくるのは、
+発明というのは、同じころに盛えた
+インダス文明、メソポタミア文明、エジプト文明には見られない独自性の
+難経そのものは現存していないが、難経の文章が記載された解説本があり、それを写本したものが残っている。
+日本に伝えられたものが江戸時代の慶安5年(1652年)に刊行され現存する。
+現存する刊本として最も古く、難経集註の底本として最善と言われる。
+</div>
+<div id = "content"></div>
 </body>
 </html>

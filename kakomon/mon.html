@@ -70,10 +70,10 @@ function filter() {
     var ans = div.getAttribute('ans');
     var items = div.getElementsByTagName('span');
     var bun = get_node_textContent(items[0]);
-    var a1 = get_node_textContent(items[1]);
-    var a2 = get_node_textContent(items[2]);
-    var a3 = get_node_textContent(items[3]);
-    var a4 = get_node_textContent(items[4]);
+    var a1 = get_text_content(items[1]);
+    var a2 = get_text_content(items[2]);
+    var a3 = get_text_content(items[3]);
+    var a4 = get_text_content(items[4]);
     var child = document.createElement('div');
     var type_str = (type == 1) ? '鍼灸' : '按マ指';
     child.innerHTML = '第 ' + kai + ' 回　' + type_str + '<br>' +
@@ -138,7 +138,7 @@ function init(doc) {
   g_texts[i] = new Array(g_divs.length);
   for (var i = 0; i < g_divs.length; i++) {
     var div = g_divs[i];
-    g_texts[i] = get_node_textContent(g_divs[i]);
+    g_texts[i] = get_text_content(g_divs[i]);
     //alert(g_texts[i]);
   }
 }
